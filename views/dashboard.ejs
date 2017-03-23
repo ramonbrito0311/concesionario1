@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Concesionario Autoservicios 2016 C.A.</title>
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css">
+   <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 4;
+      bottom: 4;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    .mdl-card{
+      margin: 5px 5px;
+      width: 660px;
+      height: 660px;
+    }
+    </style>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Concesionario Autoservicios 2016 C.A.</span>
+      <!-- Add spacer, to align navigation to the right -->
+      
+      <div class="mdl-layout-spacer">
+         
+      </div>
+      <div class="mdl-layout-spacer">
+         
+      </div>
+
+      <div class="mdl-layout-spacer" allign="right">
+        <button id="btnLogout" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white">Cerrar sesion</button>
+      </div>
+      <!-- Navigation. We hide it in small screens. -->
+
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+   <div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+  <main class="mdl-layout__content">
+    <div class="mdl-card mdl-shadow--6dp">
+      <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+        <h2 class="mdl-card__title-text">Ventana clientes</h2>
+      </div>
+      <div class="mdl-card__supporting-text"> 
+      <div>
+        <button id="btnAprobado" class="mdl-button mdl-js-button mdl-button--primary">Buscar cliente</button>
+        <button id="btnAprobado" class="mdl-button mdl-js-button mdl-button--primary">Registrar cliente</button>
+      </div>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="tabla">
+          <thrad>
+            <tr>
+             <th class="mdl-data-table__cell--non-numeric">Cedula</th>
+              <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+              <th class="mdl-data-table__cell--non-numeric">Carro</th>
+              <th class="mdl-data-table__cell--non-numeric">Placa</th>
+              <th class="mdl-data-table__cell--non-numeric">Acciones</th>
+            </tr>
+          </thrad>
+        </table>
+      </div>
+    </div>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    //const btnLogout = document.getElementById("btnLogout");
+    const auth = firebase.auth();
+    //const btnAll = document.getElementById("btnAll");
+    const btnAprobado = document.getElementById("btnAprobado");
+    const btnRejected = document.getElementById("btnRejected");
+    const btnPendiente= document.getElementById("btnPendiente");
+   // var ref = firebase.database().ref("user/");
+   // ref.on('value', llenarTabla, e);
+    //(data.cedula).each(function(index, element){  
+     //('#tbConcurso').append('<tr><td> '+element[0]+' </td></tr>');       
+     
+      var ref = firebase.database().ref('user');
+      var tabla= $("#tabla").val();
+      ref.once('value', snap=>{
+        snap.forEach(hijo=>{
+            var nombre=hijo.child("Nombre").val();
+            var edad=hijo.child("mascota").child("edad").val();
+            var nombreM=hijo.child("mascota").child("nombreMascota").val();
+            var cedula=hijo.child("Cedula").val();
+            var aprobado=hijo.child("Aprobado").val();
+            var pendiente = hijo.child("Pendiente").val();
+          if((aprobado==false && pendiente==true)||(aprobado==true && pendiente==false)){
+            var nuevaFila = $('<tr><td style="text-align:center;"><p>' +cedula+
+            '</p></td><td style="text-align:center;"><p>' +nombre+
+            '</p></td><td style="text-align:center;"><p>' +nombreM+
+            '</p></td><td style="text-align:center;"><p>' +edad+
+            '</p><td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" onclick=verData('+cedula+')>Ver</button></td><p>');
+            $("#tabla").append(nuevaFila);
+          }
+            
+           
+         btnAprobado.addEventListener('click', e=>{
+           window.location.replace("filterA.html");
+         });
+          btnPendiente.addEventListener('click', e=>{
+           window.location.replace("filterP.html");
+         });
+         btnRejected.addEventListener('click', e=>{
+            window.location.replace("filterR.html");
+         });
+         
+        });
+      });
+
+      function verData(cedula){
+          localStorage.setItem("cedula", cedula);
+          
+          //console.log(cedula);
+          window.location.replace("verDetalles.html");
+      }
+      btnLogout.addEventListener('click', e => {
+        //var cedula = localStorage.getItem("cedula");
+        //console.log(cedula);
+      firebase.auth().signOut();
+      window.location.replace("index.html");
+    });
+</script>-->
+  </main>
+</div>
+  </main>
+    </div>
+    </body>
