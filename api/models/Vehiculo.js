@@ -1,55 +1,65 @@
 /**
- * Cliente.js
+ * Vehiculo.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
-	connection: 'sqlserver',
+  connection: 'sqlserver',
   attributes: {
-  	id_cli:{
+  	/*id_vehiculo:{
   		type: 'integer',
-      primaryKey: true,
+  		primaryKey: true,
   		autoIncrement: true,
-  		notNull: true
-  	},
-  	cedula:{
+  		notNull:true
+  	},*/
+  	tipo:{
   		type: 'string',
   		notNull: true,
   		size: 20,
   		required: true
   	},
-  	nombre: {
+  	placa: {
   		type: 'string',
   		notNull: true,
   		size: 20,
   		required: true
   	},
-  	correo: {
+  	registro: {
   		type: 'string',
   		notNull: true,
   		size: 20,
   		required: true
   	},
-  	direccion:{
+  	cilindrada:{
   		type: 'string',
   		notNull: true,
   		size: 50,
   		required: true
   	},
-  	telefono: {
+  	marca: {
   		type: 'string',
   		notNull: true,
   		size: 20,
   		required: true
   	},
-    contrasena: {
-      type: 'string',
-      notNull: true,
-      size: 20,
-      required: true
-    }
+  	modelo: {
+  		type: 'string',
+  		notNull: true,
+  		size: 20,
+  		required: true
+  	},
+  	ano: {
+  		type: 'integer',
+  		notNull: true,
+  		size: 20,
+  		required: true
+  	},
+  	id_cli:{
+  		type: 'integer',
+  		unique:true
+  	}
   }
 };
 

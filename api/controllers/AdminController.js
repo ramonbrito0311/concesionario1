@@ -32,26 +32,46 @@ module.exports = {
 		}
 	},
 	perfil: function(req,res,next){
+
 		Admin.findOne({cedula:req.param('cedula')}).exec(function(err, resultado){
+			Admin.query('select contrasena from Admin where cedula =' + req.param('cedula') +';', function(err, results){
+				//var string = JSON.stringify(results);
+				//var json = JSON.parse(string);
+				//resultado.contrasena = json;
+
+
+                 
+
 			if(resultado !== undefined)
 			{
+				//var contrasenaString = req.param('contrasena').toString();
+				//var contrasenaStringBdD = resultado.contrasena.toString();
+				//var string = JSON.stringify(req.param('contrasena'));
+				//var contrasenaString = JSON.parse(string);
+				//resultado.contrasena = contrasenaString;
 				console.log(req.param('contrasena'));
+				//console.log(contrasenaString);
 				console.log(resultado.contrasena);
-				if (resultado.contrasena == req.param('contrasena')){
-					console.log('heyyyyyy');}
+				//int a = req.param('contrasena');
+				
 					//res.view({Admin: resultado});
 				    //res.redirect('/dashboard');}
+                if (req.param('contrasena') == resultado.contrasena){
+					console.log('heyyyyyy');}
+
+
 
 				else{console.log("la contrasena es invalida");}
-
 			}
 
-
-			
 			else
 				{
 					console.log("el usuario no existe");
 				}
+
+             });
+			
+			
 			
 		});
 	}

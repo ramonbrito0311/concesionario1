@@ -16,15 +16,15 @@ module.exports = {
   	},*/
   	cedula: {
   		type: 'integer',
-  		//notNull: true,
-  		size: 20
-  		//required: true
+  		notNull: true,
+  		size: 20,
+  		required: true
   	},
   	contrasena: {
   		type: 'string',
-  		//notNull: true,
-  		size: 20
-  		//required: true
+  		notNull: true,
+  		size: 20,
+  		required: true
   	}
 
   }

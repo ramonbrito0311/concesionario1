@@ -17,8 +17,6 @@
 -->
 <html lang="en">
   <head>
-
-<link type="text/css" rel="stylesheet" href="node_modules/firebaseui/dist/firebaseui.css" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
@@ -61,6 +59,7 @@
       z-index: 900;
     }
     </style>
+    
   </head>
   <body background="background.jpg">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -78,42 +77,47 @@
   <main class="mdl-layout__content">
     <div class="mdl-card mdl-shadow--6dp">
       <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h2 class="mdl-card__title-text">Registrar</h2>
+        <h2 class="mdl-card__title-text">Datos del vehiculo</h2>
       </div>
       <div class="mdl-card__supporting-text">
-        <form action="/cliente/create">
+          <form action="/vehiculo/create" method="POST">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="txtCedula" name="cedula" value=""/>
-            <label class="mdl-textfield__label" for="username">Cedula</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="txtNombre" name="nombre" value="" />
-            <label class="mdl-textfield__label" for="userpass">Nombre</label>
-          </div>
-           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="txtCorreo" name="correo" value="" />
-            <label class="mdl-textfield__label" for="userpass">Correo</label>
-          </div>
-           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="password" id="txtPassword" name="contrasena" value="" />
-            <label class="mdl-textfield__label" for="userpass">Contraseña</label>
+            <input class="mdl-textfield__input" type="text" id="txtCedula" name="tipo"/>
+            <label class="mdl-textfield__label" for="userpass"></label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="txtDireccion" name="direccion" value="" />
-            <label class="mdl-textfield__label" for="userpass">Direccion</label>
+            <input class="mdl-textfield__input" type="text" id="txtTipo" name="tipo" value="" />
+            <label class="mdl-textfield__label" for="userpass">Tipo</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="txtTelefono" name="telefono" value="" />
-            <label class="mdl-textfield__label" for="userpass">Telefono</label>
+            <input class="mdl-textfield__input" type="text" id="txtPlaca" name="placa" value="" />
+            <label class="mdl-textfield__label" for="userpass">Placa</label>
           </div>
-          <script type="text/javascript">
-        var cedula =  document.getElementById('txtCedula');
-        localStorage('cedula', req.param('cedula'));
-          </script>
-           <div class="mdl-card__actions mdl-card--border">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="txtRegistro" name="registro" value="" />
+            <label class="mdl-textfield__label" for="userpass">Registro</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="txtCilindrada" name="cilindrada" value="" />
+            <label class="mdl-textfield__label" for="userpass">Cilindrada</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="txtMarca" name="marca" value="" />
+            <label class="mdl-textfield__label" for="userpass">Marca</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="txtModelo" name="modelo" value="" />
+            <label class="mdl-textfield__label" for="userpass">Modelo</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="txtAno" name="ano" value="" />
+            <label class="mdl-textfield__label" for="userpass">Año</label>
+          </div>
+
+          <div class="mdl-card__actions mdl-card--border">
         <button id ="btnLogin" type='submit' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Registrar</button>
       </div>
-          </form>
+       </form> 
       </div>
       
       <!--<div class="mdl-card__actions mdl-card--border">
