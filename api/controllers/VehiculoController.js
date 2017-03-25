@@ -7,19 +7,33 @@
 
 module.exports = {
 	connection: 'sqlserver',
-	ver: function(req, res, next){
-		Cliente.findOne({cedula: req.param('cedula')}).exec(function (err, resultado){
+	registrarVehiculo: function(req, res, next){
 		console.log(req.param('cedula'));
-		res.redirect('vehiculo/create/' +resultado.id_cli);
+		Cliente.findOne({cedula: req.param('cedula')}).exec(function (err, resultado){
+
+		console.log(resultado.id_cli);
+		res.view('registrarVehiculo', {Cliente: resultado});
+		//res.redirect('/registrarVehiculo?id_cli='+resultado.id_cli);
+		//res.view({Cliente: resultado.id_cli});
+		//res.redirect('vehiculo/create/' +resultado.id_cli);
 		});
-		
 	},
+	
 	create: function(req, res, next)
 	{
-		
+		/*Cliente.findOne({cedula: req.param('id_cli')}).exec(function (err, resultado){
+		console.log(resultado.id_cli);
+		//res.redirect('registrarVehiculo.ejs');
+		//res.view({Cliente: resultado.id_cli});
+		//res.redirect('vehiculo/create/' +resultado.id_cli);
+		});*/
 		//console.log("sdfgh");
-		res.view('registrarVehiculo');
-			
+		//res.view('registrarVehiculo');
+			/*Cliente.findOne({cedula: req.param('cedula')}).exec(function(err, resultado){
+				
+			console.log(req.param('cedula'));
+			console.log(Cliente.id_cli);
+		});*/
 			var objeto = {
 			//id_vehiculo: req.param('id_vehiculo'),
 			tipo: req.param('tipo'),
@@ -31,6 +45,7 @@ module.exports = {
 			ano: req.param('ano'),
 			id_cli: req.param('id_cli')
 		}
+
 		Vehiculo.create(objeto, function vehiculoCreated(err,Admin)
 		{
 			if (err) return next(err);

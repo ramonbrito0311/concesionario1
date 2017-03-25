@@ -11,7 +11,7 @@ module.exports = {
 	{
 		Cliente.findOne({cedula: req.param('cedula')}).exec(function(err, resultado){
 			if (resultado===undefined){
-				var objeto = {
+			var objeto = {
 			//id_cli: req.param('id_cli'),
 			cedula: req.param('cedula'),
 			nombre: req.param('nombre'),
@@ -19,24 +19,28 @@ module.exports = {
 			direccion: req.param('direccion'),
 			telefono: req.param('telefono'),
 			contrasena: req.param('contrasena')
-		}
+			}
 		//console.log(id_cli);
 		Cliente.create(objeto, function clienteCreated(err,Admin)
 		{
+			console.log(req.param('cedula'));
 			if (err) return next(err);
-			//res.redirect('/usuario/usuarioRegistrado/'+Usuario.IDUsuario);
+			//else{return res.view('/Vehiculo/registrarVehiculo',{objeto});}
+			else {res.redirect('/Vehiculo/registrarVehiculo?cedula='+req.param('cedula'));}
 		});
-		function mandalo(a) 
+		/*function mandalo(a) 
 		{
 			Cliente.findOne({cedula: a}, function clienteMandalo(err,user)
 			{
 				if (err) return next(err);
 				if (!Cliente) return next();
+				console.log(req.param('cedula'));
+				
 				//res.redirect('dashboard.ejs');
 				//res.redirect('/usuario/usuarioRegistrado/'+user.IDUsuario);
 			});
-		}
-		res.redirect('vehiculo/ver/'+req.param('cedula'));
+		}*/
+		
 		//res.redirect('/registrarVehiculo');
 			}else{console.log("el cliente ya existe!"); res.redirect('/registrarCliente');}
 		});

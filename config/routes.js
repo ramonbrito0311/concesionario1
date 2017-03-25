@@ -42,11 +42,12 @@ module.exports.routes = {
     view: 'buscarCliente'
   },
   '/registrarVehiculo': {
-    view: 'registrarVehiculo'
+    view: 'Vehiculo/registrarVehiculo'
   },
   '/registrarCliente': {
-    view: 'registrarCliente'
-  }
+    view: 'Cliente/registrarCliente'
+  },
+  
   //'/admin/create':'AdminController.create'
   
 
