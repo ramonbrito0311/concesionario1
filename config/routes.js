@@ -41,6 +41,9 @@ module.exports.routes = {
   '/buscarCliente': {
     view: 'buscarCliente'
   },
+  '/verDetallesCliente': {
+    view: 'verDetallesCliente'
+  },
   '/registrarVehiculo': {
     view: 'Vehiculo/registrarVehiculo'
   },

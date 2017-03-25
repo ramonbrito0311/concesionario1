@@ -49,6 +49,22 @@ module.exports = {
 		//localStorage.setItem("id_clie", req.param('id_cli'));
 		//res.redirect('/Vehiculo/create/'+req.param('id_cli'));
 	},
+	asignar: function(req, res, next){
+		Cliente.findOne({cedula: req.param('cedula')}).exec(function(err, resultado){
+			if (resultado!==undefined){
+				//cedula: req.param('cedula');
+				res.redirect('/Vehiculo/registrarVehiculo?cedula='+req.param('cedula'));
+			}else{console.log("el cliente NO existe!"); res.redirect('/buscarCliente');}
+		});
+	},
+	buscar: function (req, res, next){
+		Cliente.findOne({cedula: req.param('cedula')}).exec(function(err, resultado){
+			if (resultado!==undefined){
+				//AQUI HAY QUE REDIRIGIR A UNA TABLA
+				//res.redirect('/Vehiculo/registrarVehiculo?cedula='+req.param('cedula'));
+			}else{console.log("el cliente NO existe!"); res.redirect('/buscarCliente');}
+		});
+	}
 
 };
 

@@ -24,9 +24,11 @@ module.exports = {
 		{
 			Admin.findOne({Username: a}, function usuarioMandalo(err,user)
 			{
+				console.log("hdhai");
 				if (err) return next(err);
 				if (!Admin) return next();
-				res.redirect('dashboard.ejs');
+
+				//else return res.redirect('dashboard');
 				//res.redirect('/usuario/usuarioRegistrado/'+user.IDUsuario);
 			})
 		}
@@ -57,7 +59,8 @@ module.exports = {
 					//res.view({Admin: resultado});
 				    //res.redirect('/dashboard');}
                 if (req.param('contrasena') == resultado.contrasena){
-					console.log('heyyyyyy');}
+					console.log('heyyyyyy');
+					res.redirect('dashboard');}
 
 
 
