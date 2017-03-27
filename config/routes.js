@@ -65,7 +65,10 @@ module.exports.routes = {
   '/verServicios': {
     view: 'Cliente/verServicios'
   },
-  
+  '/reportes': {
+    view: 'Cliente/reportes'
+  },
+
   //'/admin/create':'AdminController.create'
   
 

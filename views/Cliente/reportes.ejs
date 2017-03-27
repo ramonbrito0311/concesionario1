@@ -65,14 +65,19 @@
       <div class="mdl-layout-spacer">
          
       </div>
+       <div class="mdl-layout-spacer">
+         
+      </div>
+
 
       <div>
-        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337/Cliente/verCarros?cedula=<%= Cli.cedula %>">Dashboard</a>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337/dashboard">Dashboard</a>
       </div>
       <pre class="tab">     </pre>
       <div>
-        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337/ingresarU">Cerrar sesion</a>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337">Cerrar sesion</a>
       </div>
+      
         
       
       <!-- Navigation. We hide it in small screens. -->
@@ -84,42 +89,59 @@
   <main class="mdl-layout__content">
     <div class="mdl-card mdl-shadow--6dp">
       <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h2 class="mdl-card__title-text">Servicios</h2>
+        <h2 class="mdl-card__title-text">Reportes</h2>
       </div>
       <div class="mdl-card__supporting-text"> 
-           <h7 > Marca: </h7>
-      <h7 > <b> <%= Vehi.marca %> </b></h7>
-<br>
-       <h7 > Modelo: </h7> 
-       <h7> <b> <%= Vehi.modelo %> </b></h7>
-<br>
-       <h7 > Placa: </h7> 
-       <h7> <b> <%= Vehi.placa %> </b></h7>
-<br>
-       <h7 > Costo total: </h7> 
-       <h7> <b> <%= x.costo %> </b></h7>
-<br>
-       <h7>      </h7>
-
-<br> 
-
        
       <table>
 <tr> 
-    <th class="lato text-center"> Servicio </th>
-    <th class="lato text-center"> Costo </th>
-    <th class="lato text-center"> Status </th>
+    <th class="lato text-center"> Modelo mas atendido </th>
 </tr>
 
-<%_.each (Vehiculo, function(Vehiculo){ %>
+<%_.each (Rep1, function(Rep1){ %>
 
-<tr data-id= "<%= Vehiculo.id_serv %>" data-model="Vehiculo" >
+<tr data-model="Rep1" >
 
-<td class="lato" style="width:200px" align="center"><%= Vehiculo.nombre %></td>
+<td class="lato" style="width:800px" align="center"><%= Rep1.modelo %></td>
+</tr>
 
-<td class="lato" style="width:200px" align="center"><%= Vehiculo.precio %></td>
+<% }) %>
+</table>
 
-<td class="lato" style="width:200px" align="center"><%= Vehiculo.status %></td>
+<br>
+
+ <table>
+<tr> 
+    <th class="lato text-center"> Servicio mas veces llevado a cabo </th>
+    <th class="lato text-center"> Cantidad </th>
+</tr>
+
+<%_.each (Rep2, function(Rep2){ %>
+
+<tr data-model="Rep2" >
+
+<td class="lato" style="width:400px" align="center"><%= Rep2.nombre %></td>
+<td class="lato" style="width:400px" align="center"><%= Rep2.CantidadRep %></td>
+</tr>
+
+<% }) %>
+</table>
+
+<br>
+
+ <table>
+<tr> 
+    <th class="lato text-center"> Nombre del servicio </th>
+    <th class="lato text-center"> Ingresos totales </th>
+</tr>
+
+<%_.each (Rep3, function(Rep3){ %>
+
+<tr data-model="Rep3" >
+
+<td class="lato" style="width:400px" align="center"><%= Rep3.nombre %></td>
+<td class="lato" style="width:400px" align="center"><%= Rep3.Ingreso %></td>
+</tr>
 
 <% }) %>
 </table>

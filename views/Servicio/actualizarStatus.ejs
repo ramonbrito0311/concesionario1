@@ -65,13 +65,19 @@
       <div class="mdl-layout-spacer">
          
       </div>
+       <div class="mdl-layout-spacer">
+         
+      </div>
 
-      <div class="mdl-layout-spacer" allign="right">
-        <li><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337">Cerrar sesion</a></li>
-        </div>
-        <div>
-        <li><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337/dashboard">Dashboard</a></li>
-        </div>
+
+      <div>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337/dashboard">Dashboard</a>
+      </div>
+      <pre class="tab">     </pre>
+      <div>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337">Cerrar sesion</a>
+      </div>
+      
         
       
       <!-- Navigation. We hide it in small screens. -->
@@ -83,7 +89,7 @@
   <main class="mdl-layout__content">
     <div class="mdl-card mdl-shadow--6dp">
       <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h2 class="mdl-card__title-text">Ventana clientes</h2>
+        <h2 class="mdl-card__title-text">Actualizar status</h2>
       </div>
       <div class="mdl-card__supporting-text"> 
            <h7 > Marca: </h7>
@@ -94,6 +100,10 @@
 <br>
        <h7 > Placa: </h7> 
        <h7> <b> <%= Vehi.placa %> </b></h7>
+<br>
+       <h7>      </h7>
+
+<br>
        
       <table>
 <tr> 
@@ -107,13 +117,13 @@
 
 <tr data-id= "<%= Vehiculo.id_serv %>" data-model="Vehiculo" >
 
-<td class="lato "><%= Vehiculo.nombre %></td>
+<td class="lato" style="width:200px" align="center"><%= Vehiculo.nombre %></td>
 
-<td class="lato "><%= Vehiculo.precio %></td>
+<td class="lato" style="width:200px" align="center"><%= Vehiculo.precio %></td>
 
-<td class="lato "><%= Vehiculo.status %></td>
+<td class="lato" style="width:200px" align="center"><%= Vehiculo.status %></td>
 
-<td class="lato verde"><a href="/Servicio/status?id_vehiculo=<%=Vehi.id_vehiculo%>&id_serv=<%=Vehiculo.id_serv%>&cedula=<%=Cli.cedula%>"> ¡Está listo!</a>></td>
+<td class="lato verde" style="width:200px" align="center"><a href="/Servicio/status?id_vehiculo=<%=Vehi.id_vehiculo%>&id_serv=<%=Vehiculo.id_serv%>&cedula=<%=Cli.cedula%>"> ¡Está listo!</a></td>
 </tr>
 
 <% }) %>

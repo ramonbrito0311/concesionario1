@@ -66,8 +66,9 @@
          
       </div>
 
-      <div class="mdl-layout-spacer" allign="right">
-        <button id="btnLogout" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white">Cerrar sesion</button>
+      
+      <div>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" href="http://localhost:1337/ingresarU">Cerrar sesion</a>
       </div>
       <!-- Navigation. We hide it in small screens. -->
 
@@ -78,7 +79,7 @@
   <main class="mdl-layout__content">
     <div class="mdl-card mdl-shadow--6dp">
       <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h2 class="mdl-card__title-text">Ventana clientes</h2>
+        <h2 class="mdl-card__title-text">Vehiculos</h2>
       </div>
       <div class="mdl-card__supporting-text"> 
            <h7 > Nombre: </h7>
@@ -86,7 +87,10 @@
 <br>
        <h7 > Cedula: </h7> 
        <h7> <b> <%= Cli.cedula %> </b></h7>
-      
+<br>
+       <h7>      </h7>
+
+<br>      
        
       <table>
 <tr> 
@@ -101,15 +105,15 @@
 
 <tr data-id= "<%= Cliente.id_cli %>" data-model="Cliente" >
 
-<td class="lato "><%= Cliente.marca %></td>
+<td class="lato" style="width:200px" align="center"><%= Cliente.marca %></td>
 
-<td class="lato "><%= Cliente.modelo %></td>
+<td class="lato" style="width:200px" align="center"><%= Cliente.modelo %></td>
 
-<td class="lato "><%= Cliente.placa %></td>
+<td class="lato" style="width:200px" align="center"><%= Cliente.placa %></td>
 
-<td class="lato "><%= Cliente.ano %></td>
+<td class="lato" style="width:200px" align="center"><%= Cliente.ano %></td>
 
-<td class="lato verde"><a href="/Cliente/verServicios?id_vehiculo=<%=Cliente.id_vehiculo%>&cedula=<%=Cli.cedula%>"> Ver servicios </a>></td>
+<td class="lato" style="width:200px" align="center"><a href="/Cliente/verServicios?id_vehiculo=<%=Cliente.id_vehiculo%>&cedula=<%=Cli.cedula%>"> Ver servicios </a></td>
 
 
 

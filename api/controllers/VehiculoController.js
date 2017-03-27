@@ -14,30 +14,14 @@ module.exports = {
 			console.log(resultado.id_cli);
 			res.view('registrarVehiculo', {Cliente: resultado});
 		}else{res.redirect("/dashboard");}
-		
-		//res.redirect('/registrarVehiculo?id_cli='+resultado.id_cli);
-		//res.view({Cliente: resultado.id_cli});
-		//res.redirect('vehiculo/create/' +resultado.id_cli);
 		});
 	},
-	
+
+
 	create: function(req, res, next)
 	{
-		/*Cliente.findOne({cedula: req.param('id_cli')}).exec(function (err, resultado){
-		console.log(resultado.id_cli);
-		//res.redirect('registrarVehiculo.ejs');
-		//res.view({Cliente: resultado.id_cli});
-		//res.redirect('vehiculo/create/' +resultado.id_cli);
-		});*/
-		//console.log("sdfgh");
-		//res.view('registrarVehiculo');
-			/*Cliente.findOne({cedula: req.param('cedula')}).exec(function(err, resultado){
-				
-			console.log(req.param('cedula'));
-			console.log(Cliente.id_cli);
-		});*/
+		
 			var objeto = {
-			//id_vehiculo: req.param('id_vehiculo'),
 			tipo: req.param('tipo'),
 			placa: req.param('placa'),
 			registro: req.param('registro'),
@@ -52,7 +36,6 @@ module.exports = {
 		{
 			if (err) return next(err);
 			else res.redirect('/dashboard');
-			//res.redirect('/usuario/usuarioRegistrado/'+Usuario.IDUsuario);
 		});
 		function mandalo(a) 
 		{
@@ -63,11 +46,10 @@ module.exports = {
 			});
 		}
 
-			
-		
-		//var id_clie = localStorage.getItem('id_clie');
 		
 	},
+
+
 	cuadroCliente:  function(req,res,next){
 		console.log(req.param('cedula'));
 		Cliente.findOne({cedula: req.param('cedula')}).exec(function (err, resultado){
@@ -83,13 +65,9 @@ module.exports = {
 				res.view({Cliente: resultado.Cliente, Cli: resultado});
 
 			});
-			//res.view('cuadroCliente', {Cliente: resultado});
 		}else{
 			res.redirect("/verDetallesCliente");
 		}
-		//res.redirect('/registrarVehiculo?id_cli='+resultado.id_cli);
-		//res.view({Cliente: resultado.id_cli});
-		//res.redirect('vehiculo/create/' +resultado.id_cli);
 		});
 	}
 };

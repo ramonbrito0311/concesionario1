@@ -46,7 +46,7 @@ module.exports = {
 					if (err) return res.serverError(err);
 				    else res.redirect('Vehiculo/cuadroCliente?cedula='+resultado1.cedula);
 				});
-				}else{res.send('Ya existe este servicio asociado!');}
+				}else{res.send('El vehiculo ya se le asigno este servicio!');}
 
 			});
 			
@@ -99,7 +99,7 @@ module.exports = {
 					if (err) return res.serverError(err);
 					else res.redirect('Vehiculo/cuadroCliente?cedula='+resultado1.cedula);
                       });
-					}else{res.send('Ya el servicio fue actualizado!');}
+					}else{res.send('El servicio ya se realizo satisfactoriamente!');}
 				});
 
 
