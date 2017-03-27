@@ -81,72 +81,44 @@
         <h2 class="mdl-card__title-text">Ventana clientes</h2>
       </div>
       <div class="mdl-card__supporting-text"> 
-      <div>
-        <button id="btnAprobado" onclick="window.location='registrarCliente'" class="mdl-button mdl-js-button mdl-button--primary">Registrar cliente</button>
-         <button id="btnAprobado" onclick="window.location='buscarCliente'" class="mdl-button mdl-js-button mdl-button--primary">Asignar vehiculo a cliente</button>
-         <button id="btnAprobado" onclick="window.location='verDetallesCliente'" class="mdl-button mdl-js-button mdl-button--primary">Buscar cliente</button>
-      </div>
+           <h7 > Nombre: </h7>
+      <h7 > <b> <%= Cli.nombre %> </b></h7>
+<br>
+       <h7 > Cedula: </h7> 
+       <h7> <b> <%= Cli.cedula %> </b></h7>
+      
+       
+      <table>
+<tr> 
+    <th class="lato text-center"> Marca </th>
+    <th class="lato text-center"> Modelo </th>
+    <th class="lato text-center"> Placa </th>
+    <th class="lato text-center"> Año </th>
+    <th class="lato text-center"> Accion </th>
+</tr>
+
+<%_.each (Cliente, function(Cliente){ %>
+
+<tr data-id= "<%= Cliente.id_cli %>" data-model="Cliente" >
+
+<td class="lato "><%= Cliente.marca %></td>
+
+<td class="lato "><%= Cliente.modelo %></td>
+
+<td class="lato "><%= Cliente.placa %></td>
+
+<td class="lato "><%= Cliente.ano %></td>
+
+<td class="lato verde"><a href="/Cliente/verServicios?id_vehiculo=<%=Cliente.id_vehiculo%>&cedula=<%=Cli.cedula%>"> Ver servicios </a>></td>
+
+
+
+<% }) %>
+</table>
+
       </div>
     </div>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>
-    //const btnLogout = document.getElementById("btnLogout");
-    const auth = firebase.auth();
-    //const btnAll = document.getElementById("btnAll");
-    const btnAprobado = document.getElementById("btnAprobado");
-    const btnRejected = document.getElementById("btnRejected");
-    const btnPendiente= document.getElementById("btnPendiente");
-   // var ref = firebase.database().ref("user/");
-   // ref.on('value', llenarTabla, e);
-    //(data.cedula).each(function(index, element){  
-     //('#tbConcurso').append('<tr><td> '+element[0]+' </td></tr>');       
-     
-      var ref = firebase.database().ref('user');
-      var tabla= $("#tabla").val();
-      ref.once('value', snap=>{
-        snap.forEach(hijo=>{
-            var nombre=hijo.child("Nombre").val();
-            var edad=hijo.child("mascota").child("edad").val();
-            var nombreM=hijo.child("mascota").child("nombreMascota").val();
-            var cedula=hijo.child("Cedula").val();
-            var aprobado=hijo.child("Aprobado").val();
-            var pendiente = hijo.child("Pendiente").val();
-          if((aprobado==false && pendiente==true)||(aprobado==true && pendiente==false)){
-            var nuevaFila = $('<tr><td style="text-align:center;"><p>' +cedula+
-            '</p></td><td style="text-align:center;"><p>' +nombre+
-            '</p></td><td style="text-align:center;"><p>' +nombreM+
-            '</p></td><td style="text-align:center;"><p>' +edad+
-            '</p><td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--accent mdl-color-text--white" onclick=verData('+cedula+')>Ver</button></td><p>');
-            $("#tabla").append(nuevaFila);
-          }
-            
-           
-         btnAprobado.addEventListener('click', e=>{
-           window.location.replace("filterA.html");
-         });
-          btnPendiente.addEventListener('click', e=>{
-           window.location.replace("filterP.html");
-         });
-         btnRejected.addEventListener('click', e=>{
-            window.location.replace("filterR.html");
-         });
-         
-        });
-      });
-
-      function verData(cedula){
-          localStorage.setItem("cedula", cedula);
-          
-          //console.log(cedula);
-          window.location.replace("verDetalles.html");
-      }
-      btnLogout.addEventListener('click', e => {
-        //var cedula = localStorage.getItem("cedula");
-        //console.log(cedula);
-      firebase.auth().signOut();
-      window.location.replace("index.html");
-    });
-</script>-->
+ 
   </main>
 </div>
   </main>

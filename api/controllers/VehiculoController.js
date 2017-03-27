@@ -10,9 +10,11 @@ module.exports = {
 	registrarVehiculo: function(req, res, next){
 		console.log(req.param('cedula'));
 		Cliente.findOne({cedula: req.param('cedula')}).exec(function (err, resultado){
-
-		console.log(resultado.id_cli);
-		res.view('registrarVehiculo', {Cliente: resultado});
+		if (resultado !== undefined){
+			console.log(resultado.id_cli);
+			res.view('registrarVehiculo', {Cliente: resultado});
+		}else{res.redirect("/dashboard");}
+		
 		//res.redirect('/registrarVehiculo?id_cli='+resultado.id_cli);
 		//res.view({Cliente: resultado.id_cli});
 		//res.redirect('vehiculo/create/' +resultado.id_cli);
@@ -49,6 +51,7 @@ module.exports = {
 		Vehiculo.create(objeto, function vehiculoCreated(err,Admin)
 		{
 			if (err) return next(err);
+			else res.redirect('/dashboard');
 			//res.redirect('/usuario/usuarioRegistrado/'+Usuario.IDUsuario);
 		});
 		function mandalo(a) 
@@ -57,14 +60,37 @@ module.exports = {
 			{
 				if (err) return next(err);
 				if (!Vehiculo) return next();
-				//res.redirect('dashboard.ejs');
-				//res.redirect('/usuario/usuarioRegistrado/'+user.IDUsuario);
 			});
 		}
+
 			
 		
 		//var id_clie = localStorage.getItem('id_clie');
 		
+	},
+	cuadroCliente:  function(req,res,next){
+		console.log(req.param('cedula'));
+		Cliente.findOne({cedula: req.param('cedula')}).exec(function (err, resultado){
+		if (resultado !== undefined){
+			console.log(resultado.id_cli);
+			Cliente.query('SELECT a.nombre, a.cedula, b.marca, b.modelo, b.placa, b.ano, b.id_vehiculo FROM Cliente a INNER JOIN Vehiculo b ON a.id_cli = b.id_cli WHERE a.cedula ='+resultado.cedula+';'
+			, function (err, result){
+				if (err) return res.serverError(err);
+				var string = JSON.stringify(result);
+				var json = JSON.parse(string);
+				resultado.Cliente = json;
+				console.log(json);
+				res.view({Cliente: resultado.Cliente, Cli: resultado});
+
+			});
+			//res.view('cuadroCliente', {Cliente: resultado});
+		}else{
+			res.redirect("/verDetallesCliente");
+		}
+		//res.redirect('/registrarVehiculo?id_cli='+resultado.id_cli);
+		//res.view({Cliente: resultado.id_cli});
+		//res.redirect('vehiculo/create/' +resultado.id_cli);
+		});
 	}
 };
 

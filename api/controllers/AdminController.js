@@ -27,9 +27,6 @@ module.exports = {
 				console.log("hdhai");
 				if (err) return next(err);
 				if (!Admin) return next();
-
-				//else return res.redirect('dashboard');
-				//res.redirect('/usuario/usuarioRegistrado/'+user.IDUsuario);
 			})
 		}
 	},
@@ -37,27 +34,12 @@ module.exports = {
 
 		Admin.findOne({cedula:req.param('cedula')}).exec(function(err, resultado){
 			Admin.query('select contrasena from Admin where cedula =' + req.param('cedula') +';', function(err, results){
-				//var string = JSON.stringify(results);
-				//var json = JSON.parse(string);
-				//resultado.contrasena = json;
-
-
-                 
+				
 
 			if(resultado !== undefined)
 			{
-				//var contrasenaString = req.param('contrasena').toString();
-				//var contrasenaStringBdD = resultado.contrasena.toString();
-				//var string = JSON.stringify(req.param('contrasena'));
-				//var contrasenaString = JSON.parse(string);
-				//resultado.contrasena = contrasenaString;
 				console.log(req.param('contrasena'));
-				//console.log(contrasenaString);
 				console.log(resultado.contrasena);
-				//int a = req.param('contrasena');
-				
-					//res.view({Admin: resultado});
-				    //res.redirect('/dashboard');}
                 if (req.param('contrasena') == resultado.contrasena){
 					console.log('heyyyyyy');
 					res.redirect('dashboard');}

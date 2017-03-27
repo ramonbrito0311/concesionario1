@@ -41,14 +41,29 @@ module.exports.routes = {
   '/buscarCliente': {
     view: 'buscarCliente'
   },
+  '/cuadroCliente': {
+    view: 'Vehiculo/cuadroCliente'
+  },
   '/verDetallesCliente': {
     view: 'verDetallesCliente'
+  },
+   '/agregarServicio': {
+    view: 'Servicio/agregarServicio'
+  },
+   '/actualizarStatus': {
+    view: 'Servicio/actualizarStatus'
   },
   '/registrarVehiculo': {
     view: 'Vehiculo/registrarVehiculo'
   },
   '/registrarCliente': {
     view: 'Cliente/registrarCliente'
+  },
+  '/ingresarU': {
+    view: 'Cliente/ingresarU'
+  },
+  '/verServicios': {
+    view: 'Cliente/verServicios'
   },
   
   //'/admin/create':'AdminController.create'
